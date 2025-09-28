@@ -141,25 +141,25 @@ const ReconciliationResults: React.FC<ReconciliationResultsProps> = ({
                 Lançamentos na Fatura, mas não no App
               </h3>
               <div className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden">
-                <div className="max-h-64 overflow-y-auto">
+                <div className="max-h-96 overflow-y-auto">
                   <table className="w-full">
                     <thead className="bg-gray-100 dark:bg-gray-600 sticky top-0">
                       <tr>
-                        <th className="text-left py-3 px-4 font-medium text-gray-900 dark:text-white">Data</th>
-                        <th className="text-left py-3 px-4 font-medium text-gray-900 dark:text-white">Descrição</th>
-                        <th className="text-right py-3 px-4 font-medium text-gray-900 dark:text-white">Valor</th>
-                        <th className="text-center py-3 px-4 font-medium text-gray-900 dark:text-white">Ação</th>
+                        <th className="text-left py-2 px-4 font-medium text-gray-900 dark:text-white">Data</th>
+                        <th className="text-left py-2 px-4 font-medium text-gray-900 dark:text-white">Descrição</th>
+                        <th className="text-right py-2 px-4 font-medium text-gray-900 dark:text-white">Valor</th>
+                        <th className="text-center py-2 px-4 font-medium text-gray-900 dark:text-white">Ação</th>
                       </tr>
                     </thead>
                     <tbody>
                       {missingInApp.map((t, i) => (
                         <tr key={`missing-app-${i}`} className="border-b border-gray-200 dark:border-gray-600 hover:bg-white dark:hover:bg-gray-600">
-                          <td className="py-3 px-4 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">{t.date}</td>
-                          <td className="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">{t.description}</td>
-                          <td className="py-3 px-4 text-sm text-right font-mono text-red-600 dark:text-red-400 whitespace-nowrap">
+                          <td className="py-2 px-4 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">{t.date}</td>
+                          <td className="py-2 px-4 text-sm text-gray-700 dark:text-gray-300">{t.description}</td>
+                          <td className="py-2 px-4 text-sm text-right font-mono text-red-600 dark:text-red-400 whitespace-nowrap">
                             {t.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                           </td>
-                          <td className="py-3 px-4 text-center">
+                          <td className="py-2 px-4 text-center">
                             <button onClick={() => handleAddClick(t)} className="text-blue-500 hover:text-blue-700 p-1">
                               <PlusCircle className="w-5 h-5" />
                             </button>
@@ -179,25 +179,25 @@ const ReconciliationResults: React.FC<ReconciliationResultsProps> = ({
                 Lançamentos no App, mas não na Fatura
               </h3>
               <div className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden">
-                <div className="max-h-64 overflow-y-auto">
+                <div className="max-h-96 overflow-y-auto">
                   <table className="w-full">
                     <thead className="bg-gray-100 dark:bg-gray-600 sticky top-0">
                       <tr>
-                        <th className="text-left py-3 px-4 font-medium text-gray-900 dark:text-white">Data</th>
-                        <th className="text-left py-3 px-4 font-medium text-gray-900 dark:text-white">Descrição</th>
-                        <th className="text-right py-3 px-4 font-medium text-gray-900 dark:text-white">Valor</th>
-                        <th className="text-center py-3 px-4 font-medium text-gray-900 dark:text-white">Ação</th>
+                        <th className="text-left py-2 px-4 font-medium text-gray-900 dark:text-white">Data</th>
+                        <th className="text-left py-2 px-4 font-medium text-gray-900 dark:text-white">Descrição</th>
+                        <th className="text-right py-2 px-4 font-medium text-gray-900 dark:text-white">Valor</th>
+                        <th className="text-center py-2 px-4 font-medium text-gray-900 dark:text-white">Ação</th>
                       </tr>
                     </thead>
                     <tbody>
                       {missingInStatement.map((e, i) => (
                         <tr key={`missing-stmt-${i}`} className="border-b border-gray-200 dark:border-gray-600 hover:bg-white dark:hover:bg-gray-600">
-                          <td className="py-3 px-4 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">{format(new Date(e.date), 'dd/MM/yyyy', { locale: ptBR })}</td>
-                          <td className="py-3 px-4 text-sm text-gray-700 dark:text-gray-300">{e.description}</td>
-                          <td className="py-3 px-4 text-sm text-right font-mono text-yellow-600 dark:text-yellow-400 whitespace-nowrap">
+                          <td className="py-2 px-4 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap">{format(new Date(e.date), 'dd/MM/yyyy', { locale: ptBR })}</td>
+                          <td className="py-2 px-4 text-sm text-gray-700 dark:text-gray-300">{e.description}</td>
+                          <td className="py-2 px-4 text-sm text-right font-mono text-yellow-600 dark:text-yellow-400 whitespace-nowrap">
                             {e.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                           </td>
-                          <td className="py-3 px-4 text-center">
+                          <td className="py-2 px-4 text-center">
                             {onDeleteExpense && (
                               <button onClick={() => onDeleteExpense(e.id)} className="text-red-500 hover:text-red-700 p-1">
                                 <Trash2 className="w-5 h-5" />
